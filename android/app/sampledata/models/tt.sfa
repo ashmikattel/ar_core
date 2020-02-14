@@ -1,0 +1,101 @@
+{
+  materials: [
+    {
+      name: '_2',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'Translucent_Glass_Sky_Reflection',
+      parameters: [
+        {
+          baseColor: 'Translucent_Glass_Sky_Reflection',
+        },
+        {
+          baseColorTint: [
+            0.792157,
+            0.88235300000000005,
+            0.90588199999999997,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: 0.84999999999999998,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'M_0045_Goldenrod',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            0.86274499999999998,
+            0.70980399999999999,
+            0.45882400000000001,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/tt.obj',
+    name: 'tt',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Translucent_Glass_Sky_Reflection.jpg',
+      name: 'Translucent_Glass_Sky_Reflection',
+      pipeline_name: 'tt/Translucent_Glass_Sky_Reflection.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

@@ -1,0 +1,137 @@
+{
+  materials: [
+    {
+      name: '_auto_',
+      parameters: [
+        {
+          baseColor: '_auto_',
+        },
+        {
+          baseColorTint: [
+            0.47058800000000001,
+            0.40784300000000001,
+            0.22352900000000001,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_auto_1',
+      parameters: [
+        {
+          baseColor: '_auto_1',
+        },
+        {
+          baseColorTint: [
+            0.298039,
+            0.439216,
+            0.22352900000000001,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_auto_2',
+      parameters: [
+        {
+          baseColor: '_auto_2',
+        },
+        {
+          baseColorTint: [
+            0.45490199999999997,
+            0.39215699999999998,
+            0.23921600000000001,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: '_2',
+      parameters: [
+        {
+          baseColor: null,
+        },
+        {
+          baseColorTint: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/c.obj',
+    name: 'c',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/_auto_2.jpg',
+      name: '_auto_2',
+      pipeline_name: 'c/_auto_2.jpg',
+    },
+    {
+      file: 'sampledata/models/_auto_1.jpg',
+      name: '_auto_1',
+      pipeline_name: 'c/_auto_1.jpg',
+    },
+    {
+      file: 'sampledata/models/_auto_.jpg',
+      name: '_auto_',
+      pipeline_name: 'c/_auto_.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

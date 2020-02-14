@@ -1,0 +1,29 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl _2
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+d 0.000000
+
+newmtl Translucent_Glass_Sky_Reflection
+Ka 0.000000 0.000000 0.000000
+Kd 0.792157 0.882353 0.905882
+Ks 0.330000 0.330000 0.330000
+d 0.850000
+map_Kd 0/Translucent_Glass_Sky_Reflection.jpg
+
+newmtl M_0045_Goldenrod
+Ka 0.000000 0.000000 0.000000
+Kd 0.862745 0.709804 0.458824
+Ks 0.330000 0.330000 0.330000
+
+newmtl _Translucent_Glass_Sky_Reflection_5
+Ka 0.000000 0.000000 0.000000
+Kd 0.101961 0.619608 0.000000
+Ks 0.330000 0.330000 0.330000
+d 0.520000
+map_Kd 0/_Translucent_Glass_Sky_Reflection_5.jpg
+
