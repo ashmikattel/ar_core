@@ -41,7 +41,7 @@ class _CameraViewState extends State<CameraView> {
     initController();
 
     setState(() {
-      controller = CameraController(cameras[1], ResolutionPreset.medium);
+      controller = CameraController(cameras[1], ResolutionPreset.ultraHigh);
       _initializeControllerFuture = controller.initialize();
     });
   }
@@ -65,10 +65,12 @@ class _CameraViewState extends State<CameraView> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return Stack(
                     children: <Widget>[
-                      ArCoreFaceView(
+                      /*ArCoreFaceView(
                         onArCoreViewCreated: _onArCoreViewCreated,
                         enableAugmentedFaces: true,
                       ),
+*/
+                      CameraPreview(controller),
                       Positioned(
                         bottom: 0.0,
                         left: 10.0,
@@ -159,7 +161,14 @@ class DisplayPictureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Display the Picture')),
-      body: Image.file(File(imagePath)),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: FileImage(
+                  File(imagePath),
+                ),
+                fit: BoxFit.cover)),
+      ),
     );
   }
 }
