@@ -7,15 +7,15 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
-
 List<CameraDescription> cameras;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   cameras = await availableCameras();
   runApp(CameraView());
 }
+
 class CameraView extends StatefulWidget {
   @override
   _CameraViewState createState() => _CameraViewState();
@@ -57,72 +57,75 @@ class _CameraViewState extends State<CameraView> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _initializeControllerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return Stack(
-              children: <Widget>[
-                ArCoreFaceView(
-                  onArCoreViewCreated: _onArCoreViewCreated,
-                  enableAugmentedFaces: true,
-                ),
-
-                Positioned(
-                  bottom: 0.0,
-                  left: 10.0,
-                  right: 10.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+    return MaterialApp(
+      home: Scaffold(
+          body: FutureBuilder(
+              future: _initializeControllerFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Stack(
                     children: <Widget>[
-                      Container(
-                        height: 50.0,
-                        width: 50.0,
-                        margin: EdgeInsets.symmetric(vertical: 5.0),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0)),
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.camera,
-                            color: Colors.yellow,
-                            size: 40.0,
-                          ),
-                          onPressed: () async {
-                            try {
-                              await _initializeControllerFuture;
-
-                              final path = join(
-                                // Store the picture in the temp directory.
-                                // Find the temp directory using the `path_provider` plugin.
-                                (await getTemporaryDirectory()).path,
-                                '${DateTime.now()}.png',
-                              );
-                              // Attempt to take a picture and log where it's been saved.
-                              await controller.takePicture(path);
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      DisplayPictureScreen(imagePath: path),
+                      ArCoreFaceView(
+                        onArCoreViewCreated: _onArCoreViewCreated,
+                        enableAugmentedFaces: true,
+                      ),
+                      Positioned(
+                        bottom: 0.0,
+                        left: 10.0,
+                        right: 10.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              height: 50.0,
+                              width: 50.0,
+                              margin: EdgeInsets.symmetric(vertical: 5.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30.0)),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.camera,
+                                  color: Colors.yellow,
+                                  size: 40.0,
                                 ),
-                              );
-                            } catch (e) {
-                              // If an error occurs, log the error to the console.
-                              print(e);
-                            }
-                          },
+                                onPressed: () async {
+                                  try {
+                                    await _initializeControllerFuture;
+
+                                    final path = join(
+                                      // Store the picture in the temp directory.
+                                      // Find the temp directory using the `path_provider` plugin.
+                                      (await getTemporaryDirectory()).path,
+                                      '${DateTime.now()}.png',
+                                    );
+                                    // Attempt to take a picture and log where it's been saved.
+                                    await controller.takePicture(path);
+
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            DisplayPictureScreen(
+                                                imagePath: path),
+                                      ),
+                                    );
+                                  } catch (e) {
+                                    // If an error occurs, log the error to the console.
+                                    print(e);
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
-                  ),
-                ),
-              ],
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        });
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              })),
+    );
   }
 
   void _onArCoreViewCreated(ArCoreFaceController controller) {
